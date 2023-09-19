@@ -1,1 +1,1 @@
-# Nijigen_saikou
+# Groupchat analyzer of Wechat
