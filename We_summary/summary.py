@@ -1,4 +1,3 @@
-
 #coding:utf-8
 import nltk
 import jieba
@@ -73,7 +72,7 @@ def score_sentences(sentences,topn_words):#参数 sentences：文本组（分好
 
 #结果输出
 def results(texts,topn_wordnum,n):#texts 文本，topn_wordnum高频词个数,为返回几个句子
-    stopwords = stopwordslist("停用词.txt")#加载停用词
+    stopwords = stopwordslist("/content/stopwordslist.txt")#加载停用词
     sentence = sent_tokenizer(texts)  # 分句
     words = [w for sentence in sentence for w in jieba.cut(sentence) if w not in stopwords if
              len(w) > 1 and w != '\t']  # 词语，非单词词，同时非符号
@@ -96,11 +95,14 @@ def results(texts,topn_wordnum,n):#texts 文本，topn_wordnum高频词个数,�
     return c,c1
 
 if __name__=='__main__':
-    texts = str(input('请输入文本：'))
+    filename = str(input('请输入文件名：'))
+    df = pd.read_csv(filename)
+    message = []
+    for msg in range(800):
+      message.append(str(df['Message'][msg]))
+    texts = str(message)
     topn_wordnum=int(input('请输入高频词数：'))
     n=int(input('请输入要返回的句子个数：'))
     c,c1=results(texts,topn_wordnum,n)
     print(c)
     print(c1)
-
-
