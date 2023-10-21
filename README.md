@@ -9,3 +9,5 @@ We do hope to implement both Coarse-grained and Fine-grained sentiment analysis
 ## How to inplement this network
 Due to the special policy of privacy of Wechat, till now it's not yet convinient to export the groupchat history on devices other than IOS. Thus please  implement app on www.i4.cn to export the groupchat history.
 After that, please specify the file /preprocess/txt2csv as requested
+## Spacy 
+The Spacy is a "industrial" NLP task library, follow the instruction on the spacy.com to implement it. In the example cfg was set to construct a cnn and do the classification. Unfortunately it now only reached rate of 36% in the valid set.
