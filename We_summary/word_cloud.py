@@ -66,7 +66,7 @@ def show_img(wc):
     plt.imshow(wc)
     plt.axis("off")
 # 实例化，通过font_path传入一个支持中文的字体
-wc = WordCloud(font_path=u"static/fonts/simhei.ttf",
+wc = WordCloud(font_path=u"AaGuDianKeBenSong-2.ttf",
                max_words=2000,
                width=1920,
                height=1080,
