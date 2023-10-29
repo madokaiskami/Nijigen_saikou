@@ -41,7 +41,7 @@ jieba.analyse.set_stop_words('dataset/dict/stop_words_filtered.txt')
 keywords = jieba.cut(content)
 
 # 过滤停用词
-stop_words = load_stop_words('dataset/dict/stop_words_filtered.txt')
+stop_words = load_stop_words('stopwordslist.txt')
 print "stop_words length: %s" % len(stop_words)
 keywords = filter_stop_words(keywords, stop_words)
 # 过滤长度为1的词，保留长度2以上的词
