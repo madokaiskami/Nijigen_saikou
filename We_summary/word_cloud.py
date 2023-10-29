@@ -4,6 +4,11 @@ from pprint import pprint
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 from autodetect_encoding import detect_encoding
+import pandas as pd
+
+content = pd.read_csv(filename)
+content = re.sub(ur'\W+', ' ', content, flags=re.U)
+
 def load_stop_words(filename):
     predict = detect_encoding(filename)
     encoding = predict['encoding']
