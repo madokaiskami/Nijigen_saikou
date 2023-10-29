@@ -1,14 +1,10 @@
 import jieba
 from jieba import analyse
 from pprint import pprint
-def load_stop_words(filename):
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
-    """ load dictionary file.
-
-    :param filename: The path to the dictionary file
-    :return: a list of stop words
-    """
+from autodetect_encoding import detect_encoding
+def load_stop_words(filename):
     predict = detect_encoding(filename)
     encoding = predict['encoding']
     with io.open(filename, 'r', encoding=encoding, errors='ignore') as f:
@@ -18,12 +14,6 @@ import matplotlib.pyplot as plt
         return stop_words
 
 def filter_stop_words(cut_word_list, stop_words):
-        """Filter stop words
-
-        :param cut_word_list: a list of words
-        :param stop_words: a list of stop_words
-        :return: a list of Filtered words
-        """
         seg_list = [
             w for w in cut_word_list if w not in stop_words and w != " "
             ]
@@ -32,6 +22,7 @@ def filter_stop_words(cut_word_list, stop_words):
 def filter_single_word(words):
     seg_list = [ word for word in words if len(word) > 1]
     return seg_list
+    
 # 为了优化结巴的分词效果加载了几个字典
 jieba.set_dictionary('dataset/dict/dict.txt.big')
 jieba.load_userdict('dataset/dict/custom_words.txt')
