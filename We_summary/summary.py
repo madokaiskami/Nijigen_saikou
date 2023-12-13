@@ -106,7 +106,7 @@ if __name__=='__main__':
     n=int(input('Please enter the number of sentences to be returned：'))
     c,c1=results(texts,topn_wordnum,n)
     with open("./example.txt", 'w') as f:
-        f.writelines(c)
+        f.writelines(c['mean_scoredsenteces'])
         f.close()
     print(c)
     print(c1)
