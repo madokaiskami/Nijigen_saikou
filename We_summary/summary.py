@@ -95,14 +95,15 @@ def results(texts,topn_wordnum,n):#texts 文本，topn_wordnum高频词个数,�
     return c,c1
 
 if __name__=='__main__':
-    filename = str(input('请输入文件名：'))
+    filename = str(input('Please enter the filename：'))
     df = pd.read_csv(filename)
     message = []
-    for msg in range(800):
+    [wmin,wmax] = input("Range of the fisrt sentence and the last sentence，please use　"," to split:").split(",")
+    for msg in range(int(wmin),int(wmax)):
       message.append(str(df['Message'][msg]))
     texts = str(message)
-    topn_wordnum=int(input('请输入高频词数：'))
-    n=int(input('请输入要返回的句子个数：'))
+    topn_wordnum=int(input('Please enter the number of high-frequency words：'))
+    n=int(input('Please enter the number of sentences to be returned：'))
     c,c1=results(texts,topn_wordnum,n)
     print(c)
     print(c1)
